@@ -1,4 +1,4 @@
-public class Reserva {
+public class Reserva extends Pagamento{
     
     Cliente cliente = new Cliente();
 
