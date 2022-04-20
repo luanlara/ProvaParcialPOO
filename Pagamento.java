@@ -1,12 +1,6 @@
-public class Pagamento {
+public interface Pagamento {
 
-    double pagamento;
-
-
-    public double calcularPagamento(){
-
-        return pagamento;
-    }
+    public double calcularPagamento();
 
     
 }

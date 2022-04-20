@@ -1,10 +1,12 @@
-public class Reserva extends Pagamento{
+import java.util.Scanner;
+
+public class Reserva implements Pagamento{
     
     private Cliente cliente;
 
     private boolean pagamentoAVista;
 
-    public void Reserva(Cliente cliente, boolean pagamentoAVista){
+    public Reserva(Cliente cliente, boolean pagamentoAVista){
         this.cliente = cliente;
         this.pagamentoAVista = pagamentoAVista;
     }
@@ -35,7 +37,25 @@ public class Reserva extends Pagamento{
 
     @Override
     public String toString() {
-        return "Cliente = "+ cliente + "/ Forma de pagamento = " +pagamentoAVista+ ".";
+        String aux = "";
+        
+        if(cliente instanceof PessoaFisica){
+            aux += "Pessoa Física";
+        } else{
+            aux += "Pessoa Jurídica"; 
+        }
+
+        aux += "\nCliente: " + cliente.getNome(); 
+
+        if(getPagamentoAVista() == true){
+            aux += "\nPagamento: À vista";
+        } else{
+            aux += "\nPagamento: Parcelado";
+        }
+
+        return aux;
     }
+
+    
 
 }

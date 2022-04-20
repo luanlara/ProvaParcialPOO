@@ -7,7 +7,7 @@ public class PessoaJuridica extends Cliente {
         this.cnpj = cnpj;
     }
     
-    public String getCnjp() {
+    public String getCnpj() {
         return cnpj;
     }
 
@@ -17,7 +17,7 @@ public class PessoaJuridica extends Cliente {
 
     @Override
     public String toString() {
-        return "{nome: " + getNome() + ", cnpj: " + getCnjp() + "}";
+        return "{nome: " + getNome() + ", cnpj: " + getCnpj() + "}";
     }
 
 }
