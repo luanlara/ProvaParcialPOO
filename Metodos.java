@@ -78,6 +78,7 @@ public class Metodos {
 
     public static void pesquisarReserva(){
         Scanner teclado = new Scanner(System.in);
+        boolean achou = false;
 
         System.out.print("Digite seu CPF ou CNPJ: ");
         String aux = teclado.nextLine();
@@ -88,14 +89,19 @@ public class Metodos {
                 PessoaFisica pf = (PessoaFisica) (c);
                 if(pf.getCpf().equals(aux)){
                     System.out.print("Você possui uma reserva.");
+                    achou = true;
                 } 
             } else if(reservas.get(i).getCliente() instanceof PessoaJuridica){
                 Cliente c = reservas.get(i).getCliente();
                 PessoaJuridica pj = (PessoaJuridica) (c);
                 if(pj.getCnpj().equals(aux)){
                     System.out.println("Você possui uma reserva.");
+                    achou = true;
                 } 
             }
+        }
+        if(achou == false) {
+            System.out.println("Esse CPF/CNPJ não possui uma reserva.");
         }
         System.out.println();
     }
