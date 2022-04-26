@@ -83,22 +83,18 @@ public class Metodos {
         String aux = teclado.nextLine();
 
         for(int i = 0; i < reservas.size(); i++) {  
-        
-            
             if(reservas.get(i).getCliente() instanceof PessoaFisica){
                 Cliente c = reservas.get(i).getCliente();
                 PessoaFisica pf = (PessoaFisica) (c);
                 if(pf.getCpf().equals(aux)){
                     System.out.print("Você possui uma reserva.");
-                }
+                } 
             } else if(reservas.get(i).getCliente() instanceof PessoaJuridica){
                 Cliente c = reservas.get(i).getCliente();
                 PessoaJuridica pj = (PessoaJuridica) (c);
                 if(pj.getCnpj().equals(aux)){
                     System.out.println("Você possui uma reserva.");
-                }
-            } else {
-                System.out.println("Esse CPF/CNPJ não possui uma reserva. Favor checar novamente.");
+                } 
             }
         }
         System.out.println();
@@ -106,18 +102,25 @@ public class Metodos {
 
     public static void imprimirReservas(){
         for(int i = 0; i < reservas.size(); i++) {
-            if(i <= 6){
+            if(i < 6){
                 System.out.println(reservas.get(i));
-            } else{
+            } else {
                 return;
             }  
         } 
         System.out.println();
     }
 
-    public static void cancelarReserva() {
+    public static void imprimirListaDeEspera() {
+        System.out.println("--Lista de Espera--");
 
-        
+        for(int i = 6; i < reservas.size(); i++){
+            System.out.println(reservas.get(i) + " -> " + (i-5) + "º na fila de espera ");
+        }
+        System.out.println();
+    }
+
+    public static void cancelarReserva() {
         Scanner scan = new Scanner(System.in);
         String cpfcnpj;
 
@@ -142,22 +145,13 @@ public class Metodos {
                 }
             }
         }
-
         if (verdadeiro == true){
             System.out.println("A sua reserva foi cancelada com sucesso.");
         } else {
             System.out.println("Reserva não encontrada em CPF/CNPJ.");
         }
+        System.out.println();
     }
-
-    public static void imprimirListaDeEspera() {
-        System.out.println("--Lista de Espera--");
-
-        for(int i = 6; i < reservas.size(); i++){
-            System.out.println(reservas.get(i) + " -> " + (i-5) + "º na fila de espera ");
-        }
-    }
-
-  
+ 
 
 }
