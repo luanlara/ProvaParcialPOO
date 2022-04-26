@@ -22,10 +22,10 @@ public class Main {
                     Metodos.imprimirReservas();
                     break;
                 case "4":
-                    
+                    Metodos.imprimirListaDeEspera();
                      break;
                 case "5":
-                    
+                    Metodos.cancelarReserva();
                     break;
                 case "6":
                     exit = true;
